@@ -1,0 +1,191 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    min-height: 100vh;
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.20)
+        ),
+        url("palm.jpg");
+
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 6%;
+    gap: 25px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a,
+.contact-btn {
+    color: white;
+    text-decoration: none;
+}
+
+.contact-btn {
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 12px 20px;
+}
+
+.hero-content {
+    max-width: 650px;
+    padding: 70px 6%;
+}
+
+.eyebrow {
+    color: #e5b66a;
+    font-size: 20px;
+}
+
+.hero-content h1 {
+    font-size: 60px;
+    line-height: 1.3;
+    margin: 15px 0;
+}
+
+.description {
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+.main-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 25px;
+    border-radius: 30px;
+    background: #8b5e3c;
+    color: white;
+    text-decoration: none;
+}
+.contact-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* لازم الـ hero يكون relative عشان المربعات تتثبت بالنسبة له */
+.hero {
+  position: relative;
+}
+
+.hero-cards {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1300px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+  direction: rtl;
+}
+
+.hero-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 80px;
+  text-decoration: none;
+  color: #fff;
+
+  /* الشفافية + الضبابية = الخلفية تبان من ورا المربع */
+  background: rgba(30, 20, 10, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(212, 163, 90, 0.45);
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s, background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.hc-icon { font-size: 2rem; }
+
+.hc-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f1d9a8;
+}
+
+.hero-card:hover {
+  transform: translateY(-8px);
+  background: rgba(212, 163, 90, 0.28);
+  border-color: #e8b865;
+  box-shadow: 0 14px 32px rgba(212, 163, 90, 0.35);
+}
+
+/* تابلت */
+@media (max-width: 1000px) {
+  .hero-cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* موبايل */
+@media (max-width: 600px) {
+  .hero-cards {
+    grid-template-columns: repeat(2, 1fr);
+    position: static;
+    transform: none;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}.clock-widget {
+  position: absolute;
+  top: 28px;
+  right: 40px;
+  z-index: 10;
+  padding: 14px 26px;
+  text-align: center;
+  color: #fff;
+  background: rgba(30, 20, 10, 0.35);
+  border: 1px solid rgba(201, 162, 104, 0.45);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(0px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+.clock-time {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-variant-numeric: tabular-nums; /* يمنع اهتزاز الأرقام كل ثانية */
+}
+.clock-divider {
+  width: 20px;
+  height: 2px;
+  margin: 8px auto;
+  background: #c9a268;
+  border-radius: 2px;
+}
+.clock-date { font-size: 10px; color: #f3e3c3; }
+.clock-hijri { font-size: 9px; color: #c9a268; margin-top: 2px; }

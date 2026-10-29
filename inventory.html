@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تقرير Power BI</title>
+<style>
+  body { margin: 0; padding: 6px; font-family: system-ui, Tahoma, sans-serif;
+         background: #14171d; color: #e8eaf0; }
+  h1 { font-size: 1rem; margin: 0 0 6px; }
+  .frame { position: relative; width: 100%; height: calc(100vh - 70px);
+           min-height: 520px; overflow: hidden; border-radius: 8px; }
+  .frame iframe { position: absolute; top: 0; left: 0; width: 100%; border: 0; }
+</style>
+</head>
+<body>
+  <h1 id="title"></h1>
+  <div class="frame" id="frame">
+    <iframe id="report" allowfullscreen="true"></iframe>
+  </div>
+
+<script>
+  // ====== غيّر هنا بس ======
+  const REPORT_URL =  "https://app.powerbi.com/view?r=eyJrIjoiNWUwYmNhODYtMDJhNS00ZDUyLWFjZDctYTBlMjYyMjVlZjA1IiwidCI6IjlkZjZjN2Q4LTk4YzktNDliYS05NmZkLTBhNzIzMjVhZGMwYSJ9";   // الرابط اللي جوه src في كود الـ iframe
+  const TITLE      = "تقرير المخزون";          // عنوان الصفحة
+  const HIDE_BAR   = 60;                        // ارتفاع الشريط السفلي بالبكسل (0 = لا تخفيه)
+  // =========================
+
+  document.getElementById("title").textContent = TITLE;
+  document.title = TITLE;
+  const iframe = document.getElementById("report");
+  iframe.src = REPORT_URL;
+  iframe.style.height = "calc(100% + " + HIDE_BAR + "px)";
+</script>
+</body>
+</html>

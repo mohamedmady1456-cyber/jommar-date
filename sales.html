@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>تقرير Power BI</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 8px;
+    font-family: system-ui, Tahoma, sans-serif;
+    background: #14171d;
+    color: #e8eaf0;
+  }
+
+  /* الشريط العلوي */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+    min-height: 38px;
+  }
+
+  h1 {
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  /* زر العودة للرئيسية */
+  .home-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 7px;
+    background: #252b36;
+    border: 1px solid #3b4657;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .home-btn:hover {
+    background: #344258;
+    border-color: #627b9d;
+  }
+
+  /* إطار التقرير */
+  .frame {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 70px);
+    min-height: 520px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .frame iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 0;
+  }
+
+  /* تحسين العرض على الجوال */
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 14px;
+    }
+
+    .home-btn {
+      padding: 7px 10px;
+      font-size: 12px;
+    }
+
+    .frame {
+      min-height: 450px;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+
+  <!-- الشريط العلوي -->
+  <div class="header">
+
+    <h1 id="title"></h1>
+
+    <a
+      class="home-btn"
+      href="https://jommar-reports.netlify.app/"
+      title="العودة إلى الصفحة الرئيسية">
+      🏠 الرئيسية
+    </a>
+
+  </div>
+
+  <!-- التقرير -->
+  <div class="frame" id="frame">
+    <iframe id="report" allowfullscreen="true"></iframe>
+  </div>
+
+<script>
+
+  // ====== غيّر هنا بس ======
+
+  const REPORT_URL = "https://app.powerbi.com/view?r=eyJrIjoiMDEwZjE2NjgtY2Q5NS00MGVhLWExNTUtYzVlM2VmNTU3NDNhIiwidCI6IjlkZjZjN2Q4LTk4YzktNDliYS05NmZkLTBhNzIzMjVhZGMwYSJ9";
+  const TITLE      = "تقرير المبيعات";
+  const HIDE_BAR   = 60;
+
+  // =========================
+
+  document.getElementById("title").textContent = TITLE;
+  document.title = TITLE;
+
+  const iframe = document.getElementById("report");
+
+  iframe.src = REPORT_URL;
+
+  iframe.style.height =
+    "calc(100% + " + HIDE_BAR + "px)";
+
+</script>
+
+</body>
+</html>

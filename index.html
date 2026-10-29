@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jommar Dates</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="hero"> 
+
+      <div class="clock-widget" dir="rtl">
+  <div class="clock-time" id="clockTime">--:--:--</div>
+  <div class="clock-divider"></div>
+  <div class="clock-date" id="clockDate">--</div>
+  <div class="clock-hijri" id="clockHijri"></div>
+</div>
+
+
+        <header class="navbar">
+
+        <div class="logo"><img src="logo.png" alt="جمار" height="110"></div>
+
+<div class="hero-cards">
+  <a href="sales.html" class="hero-card">
+    <span class="hc-icon">📈</span>
+    <span class="hc-title">المبيعات</span>
+  </a>
+  <a href="inventory.html" class="hero-card">
+    <span class="hc-icon">📦</span>
+    <span class="hc-title">المخزون</span>
+  </a>
+  <a href="finance.html" class="hero-card">
+    <span class="hc-icon">💰</span>
+    <span class="hc-title">التقارير المالية</span>
+  </a>
+  <a href="purchases.html" class="hero-card">
+    <span class="hc-icon">🛒</span>
+    <span class="hc-title">المشتريات</span>
+  </a>
+  <a href="branches.html" class="hero-card">
+    <span class="hc-icon">🏬</span>
+    <span class="hc-title">الفروع</span>
+  </a>
+  <a href="expenses.html" class="hero-card">
+    <span class="hc-icon">🧾</span>
+    <span class="hc-title">المصروفات</span>
+  </a>
+</div>
+
+
+
+            <a class="contact-btn" href="#">Acc.MoHaMeD MaDy</a>
+        </header>
+
+        <section class="hero-content">
+            <p class="eyebrow">تمور سعودية أصيلة</p>
+
+            <h1>من قلب الأرض<br>إلى مائدتك</h1>
+
+            <p class="description">
+                نقدم لكم أجود أنواع التمور السعودية
+                بجودة أصيلة ومذاق لا يُنسى
+            </p>
+
+            <a href="#" class="main-btn">تقارير جمار ←</a>
+        </section>
+
+    </main>
+
+    <script>
+        const TZ = 'Asia/Riyadh';
+
+        function updateClock() {
+            const now = new Date();
+
+            document.getElementById('clockTime').textContent =
+                new Intl.DateTimeFormat('ar-SA-u-nu-latn', {
+                    timeZone: TZ, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true
+                }).format(now);
+
+            document.getElementById('clockDate').textContent =
+                new Intl.DateTimeFormat('ar-SA-u-ca-gregory-nu-latn', {
+                    timeZone: TZ, weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+                }).format(now);
+
+            document.getElementById('clockHijri').textContent =
+                new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura-nu-latn', {
+                    timeZone: TZ, day: 'numeric', month: 'long', year: 'numeric'
+                }).format(now);
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+
+</body>
+
+</html>
