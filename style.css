@@ -8,12 +8,14 @@ body {
 }
 
 .hero {
+    position: relative;
     min-height: 100vh;
     background-image:
         linear-gradient(
             90deg,
-            rgba(0, 0, 0, 0.60),
-            rgba(0, 0, 0, 0.15)
+            rgba(0, 0, 0, 0.60) 0%,
+            rgba(0, 0, 0, 0.15) 50%,
+            rgba(0, 0, 0, 0.60) 100%
         ),
         url("palm.jpg");
 
@@ -50,11 +52,21 @@ nav a,
     border: 1px solid white;
     border-radius: 30px;
     padding: 12px 20px;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;      /* التوقيع على اليسار */
+    right: auto;
+    z-index: 1000;
 }
 
+/* النص على اليمين */
 .hero-content {
     max-width: 650px;
     padding: 70px 6%;
+    margin-left: auto;
+    margin-right: 0;
+    text-align: right;
+    direction: rtl;
 }
 
 .eyebrow {
@@ -82,17 +94,6 @@ nav a,
     color: white;
     text-decoration: none;
 }
-.contact-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-.hero {
-  position: relative;
-}
-
 
 .hero-cards {
   position: absolute;
@@ -106,7 +107,6 @@ nav a,
   gap: 18px;
   direction: rtl;
 }
-
 
 .hero-card {
   display: flex;
@@ -212,8 +212,9 @@ nav a,
   to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
+/* بيدخل من اليمين */
 @keyframes cinematic-content {
-  from { opacity: 0; transform: translateX(-35px); filter: blur(5px); }
+  from { opacity: 0; transform: translateX(35px); filter: blur(5px); }
   to { opacity: 1; transform: translateX(0); filter: blur(0); }
 }
 
