@@ -534,3 +534,44 @@ nav a,
     from { opacity: 0; transform: translateY(24px); filter: blur(4px); }
     to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
+
+/* تثبيت توقيع Mohamed Mady أسفل يسار الشاشة */
+.signature {
+    position: fixed !important;
+    left: 20px !important;
+    bottom: 20px !important;
+    top: auto !important;
+    right: auto !important;
+    z-index: 1001;
+}
+
+/* منع تمدد الصفحة أثناء التحميل */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow-x: clip;
+}
+
+/* تثبيت مساحة الصفحة */
+.hero {
+    width: 100%;
+    max-width: 100%;
+    overflow: clip;
+}
+
+/* منع الكروت من تجاوز حدود الشاشة */
+.hero-cards {
+    max-width: min(1500px, 90%);
+}
+
+/* تثبيت التوقيع */
+.signature {
+    position: fixed !important;
+    left: 20px !important;
+    bottom: 20px !important;
+    right: auto !important;
+    top: auto !important;
+    z-index: 1001;
+}
