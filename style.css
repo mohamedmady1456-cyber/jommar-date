@@ -93,6 +93,7 @@ nav a,
     text-decoration: none;
 }
 
+/* ===== الكروت: صف واحد دايماً، أي كارت جديد يتضاف في نفس الصف ===== */
 .hero-cards {
     position: absolute;
     bottom: 70px;
@@ -101,8 +102,9 @@ nav a,
     width: 90%;
     max-width: 1500px;
     display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 18px;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    gap: 12px;
     direction: rtl;
 }
 
@@ -111,11 +113,11 @@ nav a,
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
     min-width: 0;
-    min-height: 80px;
+    min-height: 64px;
     height: auto;
-    padding: 14px 10px;
+    padding: 10px 6px;
     text-align: center;
     direction: rtl;
     text-decoration: none;
@@ -124,20 +126,20 @@ nav a,
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(212, 163, 90, 0.45);
-    border-radius: 18px;
+    border-radius: 14px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
     transition: transform 0.3s, background 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
 .hc-icon {
     flex: 0 0 auto;
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 1;
 }
 
 .hc-title {
     max-width: 100%;
-    font-size: 1.05rem;
+    font-size: 0.85rem;
     font-weight: 600;
     line-height: 1.35;
     color: #f1d9a8;
@@ -150,12 +152,6 @@ nav a,
     background: rgba(212, 163, 90, 0.28);
     border-color: #e8b865;
     box-shadow: 0 14px 32px rgba(212, 163, 90, 0.35);
-}
-
-@media (max-width: 1000px) {
-    .hero-cards {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
 }
 
 @media (max-width: 600px) {
@@ -535,16 +531,6 @@ nav a,
     to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
-/* تثبيت توقيع Mohamed Mady أسفل يسار الشاشة */
-.signature {
-    position: fixed !important;
-    left: 20px !important;
-    bottom: 20px !important;
-    top: auto !important;
-    right: auto !important;
-    z-index: 1001;
-}
-
 /* منع تمدد الصفحة أثناء التحميل */
 html,
 body {
@@ -566,12 +552,12 @@ body {
     max-width: min(1500px, 90%);
 }
 
-/* تثبيت التوقيع */
+/* تثبيت توقيع Mohamed Mady أسفل يسار الشاشة */
 .signature {
     position: fixed !important;
     left: 20px !important;
     bottom: 20px !important;
-    right: auto !important;
     top: auto !important;
+    right: auto !important;
     z-index: 1001;
 }
